@@ -33,6 +33,12 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "AMF112"
+  }
+}]]></component>
   <component name="GithubPullRequestsUISettings"><![CDATA[{
   "selectedUrlAndAccountId": {
     "url": "https://github.com/AMF112/flask-bites.git",
@@ -153,7 +159,7 @@
       <workItem from="1773560637246" duration="599000" />
       <workItem from="1773581495805" duration="36000" />
       <workItem from="1773582998478" duration="43000" />
-      <workItem from="1775375758242" duration="7960000" />
+      <workItem from="1775375758242" duration="8263000" />
     </task>
     <servers />
   </component>
@@ -162,6 +168,6 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/flask_bites$flask_bites.coverage" NAME="flask-bites Coverage Results" MODIFIED="1773385325516" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/flask_bites$app.coverage" NAME="app Coverage Results" MODIFIED="1775376605045" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/flask_bites$app.coverage" NAME="app Coverage Results" MODIFIED="1775384333803" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
 </project>
