@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    {% block styles %}
+        {{ bootstrap.load_css() }}
+
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    {% endblock %}
+</head>
+<body class="d-flex flex-column min-vh-100">
+    {% include 'header.html' %}
+
+    <main class="flex-fill">
+        <div class="container py-4">
+            {% block content %}{% endblock %}
+        </div>
+    </main>
+
+    {% include 'footer.html' %}
+
+    {% block scripts %}
+        {{ bootstrap.load_js() }}
+        <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+          tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl)
+          })
+        });
+        </script>
+    {% endblock %}
+</body>
+</html>

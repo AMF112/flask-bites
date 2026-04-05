@@ -1,0 +1,181 @@
+:root {
+  --bs-body-bg: black;
+  --bs-body-color: white;
+  --brand-orange: #ff5400;
+  --dark-surface: #121212;
+  --glass-effect: rgba(0, 0, 0, 0.8);
+}
+
+body {
+    background: var(--bs-body-bg);
+    color: var(--bs-body-color);
+}
+
+.tooltip {
+  --bs-tooltip-bg: var(--brand-orange);
+  --bs-tooltip-color: var(--bs-body-bg);
+}
+
+.btn-orange {
+  --bs-btn-color: white;
+  --bs-btn-bg: var(--brand-orange);
+  --bs-btn-border-color: var(--brand-orange);
+  --bs-btn-hover-color: white;
+  --bs-btn-hover-bg: #ff3c00;
+  --bs-btn-hover-border-color: #ff3300;
+  --bs-btn-disabled-color: white;
+  --bs-btn-disabled-bg: var(--brand-orange);
+  --bs-btn-disabled-border-color: var(--brand-orange);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-orange:hover {
+    box-shadow: 0 5px 15px rgba(255, 84, 0, 0.4);
+}
+
+.btn-outline-orange {
+  --bs-btn-color: var(--brand-orange);
+  --bs-btn-border-color: var(--brand-orange);
+  --bs-btn-hover-color: white;
+  --bs-btn-hover-bg: var(--brand-orange);
+  --bs-btn-hover-border-color: var(--brand-orange);
+  --bs-btn-disabled-color: var(--brand-orange);
+  --bs-btn-border-color: var(--brand-orange);
+  --bs-btn-disabled-bg: transparent;
+}
+
+.border-orange {
+    border-color: var(--brand-orange) !important;
+}
+
+.navbar {
+    background-color: var(--glass-effect) !important;
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nav-link {
+    transition: color 0.2s ease;
+}
+
+.nav-link:hover {
+    color: var(--brand-orange) !important;
+}
+
+.text-orange {
+    color: var(--brand-orange) !important;
+}
+
+.social-icon {
+    transition: color 0.3s ease, transform 0.3s ease;
+    display: inline-block;
+}
+
+.social-icon:hover {
+    color: var(--brand-orange) !important;
+    transform: translateY(-3px);
+}
+
+.menu .menu-img {
+    width: 100%;
+    height: 225px;
+    object-fit: cover;
+    border-radius: 12px 12px 0 0;
+}
+
+.card {
+    background-color: var(--dark-surface);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: white;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: scale(1.02);
+}
+
+.tracking-wide {
+    letter-spacing: 1.5px;
+}
+
+.form-control-lg {
+    font-size: 1rem;
+    border-radius: 4px;
+}
+
+.form-control:focus {
+    background-color: #000 !important;
+    border-color: var(--brand-orange) !important;
+    box-shadow: none !important;
+    color: white !important;
+}
+
+.form-label {
+    color: white;
+    font-weight: 500;
+}
+
+.bg-dark {
+    transition: none !important;
+    transform: none !important;
+}
+
+.form-control::placeholder {
+    color: rgba(255, 255, 255, 0.5) !important;
+    opacity: 1;
+}
+
+.bg-black::placeholder {
+    color: #a0a0a0 !important;
+}
+
+.form-control:focus::placeholder {
+    color: rgba(255, 255, 255, 0.3) !important;
+}
+
+.object-fit-cover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.btn-outline-danger:hover {
+    background-color: rgba(220, 53, 69, 0.1);
+    color: #dc3545;
+}
+
+.tracking-widest {
+    letter-spacing: 0.15em;
+    font-size: 0.7rem;
+}
+
+.quantity-picker span {
+    min-width: 25px;
+    text-align: center;
+}
+
+.x-small {
+    font-size: 0.75rem;
+}
+
+.bg-orange {
+    background-color: var(--brand-orange) !important;
+    color: white !important;
+}
+
+.nav-icon-btn {
+    transition: transform 0.2s ease;
+}
+
+.nav-icon-btn:hover {
+    transform: translateY(-2px);
+}
+
+.nav-icon-btn svg {
+    transition: color 0.2s ease;
+}
+
+.nav-icon-btn:hover svg {
+    color: var(--brand-orange) !important;
+}

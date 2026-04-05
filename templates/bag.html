@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+{% block title %} {{ title }} {% endblock %}
+{% block content %}
+<div class="container py-5">
+    <div class="d-flex justify-content-between align-items-end mb-5">
+        <div>
+            <h1 class="fw-bold mb-1">Your Bag</h1>
+            <p class="text-secondary small mb-0 text-uppercase tracking-widest">Review your selection</p>
+        </div>
+        {% if order.order_items %}
+        <span class="badge rounded-pill bg-black border border-secondary border-opacity-50 px-3 py-2">
+            {{ get_cart_count() }} Items
+        </span>
+        {% endif %}
+    </div>
+
+    {% if order.order_items %}
+    <div class="row g-4">
+        <div class="col-lg-8">
+            <div class="d-flex flex-column gap-3">
+                {% for item in order.order_items %}
+                <div class="d-flex align-items-center bg-dark border border-secondary border-opacity-10 rounded-4 p-3">
+
+                    <div style="width: 100px; height: 100px; flex-shrink: 0;">
+                        <div class="ratio ratio-1x1 overflow-hidden rounded-3">
+                            <img src="{{ url_for('static', filename='assets/images/menu/' + item.menu.img_url) }}"
+                                 class="img-fluid object-fit-cover"
+                                 alt="{{ item.menu.name }}">
+                        </div>
+                    </div>
+
+                    <div class="flex-grow-1 ps-4">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <div>
+                                <h5 class="fw-bold mb-1 text-white">{{ item.menu.name }}</h5>
+                                <p class="text-orange fw-semibold mb-0">₱{{ item.menu.price }}</p>
+                            </div>
+                            <a href="{{ url_for('delete_item', item_id=item.id) }}" class="text-white opacity-50 text-decoration-none">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
+                                    <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z"/>
+                                    <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z"/>
+                                </svg>
+                            </a>
+                        </div>
+
+                        <div class="d-flex align-items-center gap-3 mt-3">
+                            <div class="quantity-picker d-inline-flex align-items-center bg-black rounded-pill border border-secondary border-opacity-25 px-2">
+                                <a href="{{ url_for('decrease_quantity', item_id=item.id) }}" class="text-secondary p-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8"/></svg>
+                                </a>
+                                <span class="px-2 small fw-bold">{{ item.quantity }}</span>
+                                <a href="{{ url_for('increase_quantity', item_id=item.id) }}" class="text-orange p-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"/></svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="col-lg-4">
+            <div class="sticky-top" style="top: 2rem;">
+                <div class="bg-dark p-4 rounded-4 border border-secondary border-opacity-10">
+                    <h5 class="fw-bold mb-4">Summary</h5>
+                    <div class="d-flex justify-content-between mb-3">
+                        <span class="text-secondary">Subtotal</span>
+                        <span class="text-white">₱{{ order.total_price }}</span>
+                    </div>
+                    <div class="d-flex justify-content-between mb-4">
+                        <span class="text-secondary">Delivery</span>
+                        <span class="text-success small">FREE</span>
+                    </div>
+                    <hr class="border-secondary opacity-10">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <span class="fw-bold">Total</span>
+                        <span class="fs-4 fw-bold text-orange">₱{{ order.total_price }}</span>
+                    </div>
+                    <a href="{{ url_for('checkout', order_id=order.id) }}" class="btn btn-orange w-100 py-3 fw-bold rounded-3 text-uppercase tracking-wider">
+                        Checkout
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% else %}
+    <div class="text-center py-5">
+        <p class="text-secondary fs-5">Your bag is currently empty.</p>
+        <a href="{{ url_for('menu') }}" class="btn btn-outline-orange rounded-pill px-4 mt-2">Explore Menu</a>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

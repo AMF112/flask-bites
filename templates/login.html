@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% from 'bootstrap5/form.html' import render_field, render_hidden_errors %}
+
+{% block title %} {{ title }} {% endblock %}
+
+{% block content %}
+<div class="container d-flex align-items-center justify-content-center py-5" style="min-height: 70vh;">
+    <div class="bg-dark p-4 p-sm-5 rounded-3 border border-secondary border-opacity-25 w-100"
+         style="max-width: 500px;">
+
+        <h2 class="fw-bold mb-4">Login</h2>
+
+        <form action="{{ url_for('login') }}" method="post" novalidate>
+            {{ form.hidden_tag() }}
+            {{ render_hidden_errors(form) }}
+
+            <div class="mb-3">
+                {{ render_field(form.email, class="form-control bg-black border-secondary text-white py-2 shadow-none", placeholder="Email address") }}
+            </div>
+
+            <div class="mb-4">
+                {{ render_field(form.password, class="form-control bg-black border-secondary text-white py-2 shadow-none", placeholder="Enter password") }}
+            </div>
+
+            <div class="d-grid gap-2">
+                {{ render_field(form.submit, button_style='btn btn-orange fw-bold py-2') }}
+            </div>
+
+            <div class="mt-4 text-center">
+                <p class="text-secondary small">
+                    New to Flask Bites?
+                    <a href="{{ url_for('register') }}" class="text-orange text-decoration-none fw-bold">Sign Up</a>
+                </p>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

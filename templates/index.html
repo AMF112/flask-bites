@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block title %} {{ title }} {% endblock %}
+{% block content %}
+<div class="hero-section position-relative overflow-hidden">
+    <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+        <div class="carousel-indicators custom-indicators">
+            {% for count in range(images | length) %}
+                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="{{ count }}"
+                        class="{% if loop.first %}active{% endif %}"
+                        aria-current="{% if loop.first %}true{% endif %}"
+                        aria-label="Slide {{ count + 1 }}">
+                </button>
+            {% endfor %}
+        </div>
+
+        <div class="carousel-inner shadow-lg rounded-4">
+            {% for image in images %}
+            <div class="carousel-item {% if loop.first %}active{% endif %}">
+                <div class="overlay"></div>
+                <img src="{{ url_for('static', filename='assets/images/carousel/' + image) }}"
+                     class="d-block w-100" alt="Featured Dish">
+            </div>
+            {% endfor %}
+        </div>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon p-3 rounded-circle bg-dark bg-opacity-25" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon p-3 rounded-circle bg-dark bg-opacity-25" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+    <div class="cta-wrapper text-center mt-5">
+        <h2 class="h4 mb-4 text-secondary text-uppercase tracking-widest">Ready to eat?</h2>
+        <a href="{{ url_for('menu') }}" class="btn btn-orange btn-lg px-5 py-3 rounded-pill shadow-sm transition-transform">
+            Place your order now!
+        </a>
+    </div>
+</div>
+{% endblock %}

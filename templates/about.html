@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block title %} {{ title }} {% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-7">
+            <h1 class="fw-bold mb-4">About <span class="text-orange">Flask Bites</span></h1>
+
+            <p class="lead text-secondary mb-5">
+                Flask Bites is a functional web application developed to demonstrate the core principles of full-stack development.
+            </p>
+
+            <div class="mb-5">
+                <h2 class="h5 fw-bold text-uppercase tracking-wide mb-3">Project Goals</h2>
+                <p>
+                    The primary objective of this project was to create a clean, responsive ordering interface that handles dynamic data. It focuses on user authentication, database management with PostgreSQL, and a modern UI using Bootstrap 5.
+                </p>
+            </div>
+
+            <div class="mb-5">
+                <h2 class="h5 fw-bold text-uppercase tracking-wide mb-3">Technical Stack</h2>
+                <div class="d-flex flex-wrap gap-2">
+                    <span class="badge border border-secondary text-secondary px-3 py-2 rounded-pill">Python</span>
+                    <span class="badge border border-secondary text-secondary px-3 py-2 rounded-pill">Flask</span>
+                    <span class="badge border border-secondary text-secondary px-3 py-2 rounded-pill">PostgreSQL</span>
+                    <span class="badge border border-secondary text-secondary px-3 py-2 rounded-pill">SQLAlchemy</span>
+                    <span class="badge border border-secondary text-secondary px-3 py-2 rounded-pill">Jinja2</span>
+                </div>
+            </div>
+
+            <div class="p-4 bg-dark border border-secondary border-opacity-25 rounded-4">
+                <h2 class="h6 fw-bold mb-2">Developer</h2>
+                <p class="text-secondary mb-0">
+                    Built by <span class="text-white fw-semibold">Adrian Flores</span>, a Computer Science student focusing on Software Engineering and scalable web architectures.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
